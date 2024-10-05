@@ -149,7 +149,7 @@ function nav(path) {
           </div>
        </div>
   `;
-  html += `<a href="/" dir=auto class="mdui-typo-headline folder">${document.siteName}</a>`;
+  html += `<div class="mdui-container"><div class="mdui-row"><a href="/" dir=auto class="mdui-typo-headline folder">${document.siteName}</a>`;
   var arr = path.trim("/").split("/");
   var p = "/";
   if (arr.length > 0) {
@@ -164,7 +164,7 @@ function nav(path) {
       if (n == "") {
         break;
       }
-      html += `<i class="mdui-icon material-icons mdui-icon-dark folder" style="margin:0;transform:rotate(180deg);">chevron_right</i><a dir=auto class="folder" href="${p}">${n}</a>`;
+      html += `<i class="mdui-icon material-icons mdui-icon-dark folder" style="margin:0;transform:rotate(180deg);">chevron_right</i><a dir=auto class="folder" href="${p}">${n}</a</div></div>`;
     }
   }
   $("#nav").html(html);
