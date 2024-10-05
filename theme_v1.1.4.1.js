@@ -47,7 +47,7 @@ function init() {
   $("body").addClass("mdui-theme-primary-blue-grey mdui-theme-accent-blue");
   var html = `
 <header class="mdui-appbar mdui-color-theme" style="position: relative"> 
-    <div id="nav">
+    <div id="nav" class="mdui-toolbar mdui-container">
        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
           <div class="container-fluid">
              <a class="navbar-brand" href="/"><img border="0" alt="AnimeSan" src="" height="" width="100px"></a>
@@ -148,15 +148,12 @@ function nav(path) {
              </div>
           </div>
        </div>
-       <div class="mdui-container"><div class="mdui-row">
-       <a href="/" dir=auto class="mdui-typo-headline folder">${document.siteName}</a>
-       <i class="mdui-icon material-icons mdui-icon-dark folder" style="margin:0;transform:rotate(180deg);">chevron_right</i><a dir=auto class="folder" href="${p}">${n}</a>
-       </div></div>
   `;
+  html += `<a href="/" dir=auto class="mdui-typo-headline folder">${document.siteName}</a>`;
   var arr = path.trim("/").split("/");
   var p = "/";
   if (arr.length > 0) {
-    for (let i in arr) {
+    for (i in arr) {
       var n = arr[i];
       n = decodeURI(n);
       if (/.*(\..+$)/i.test(n)) {
@@ -167,9 +164,9 @@ function nav(path) {
       if (n == "") {
         break;
       }
+      html += `<i class="mdui-icon material-icons mdui-icon-dark folder" style="margin:0;transform:rotate(180deg);">chevron_right</i><a dir=auto class="folder" href="${p}">${n}</a>`;
     }
   }
-
   $("#nav").html(html);
 }
 
