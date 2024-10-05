@@ -162,7 +162,7 @@ function nav(path) {
           </div>
        </div>
   `;
-  html += `<div id="folder" class="mdui-container"></div><a href="/" dir=auto class="mdui-typo-headline folder">${document.siteName}</a>`;
+  html += `<div id="folder" class="mdui-container"><a href="/" dir=auto class="mdui-typo-headline folder">${document.siteName}</a>`;
   var arr = path.trim("/").split("/");
   var p = "/";
   if (arr.length > 0) {
