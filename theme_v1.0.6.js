@@ -546,16 +546,12 @@ function init() {
                    </li>
                    <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">الأعمال</a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown"><a class="dropdown-item" href="/0:/الأعمال%20الحالية/">الحالية</a><a class="dropdown-item" href="/0:/الأعمال%20المكتملة/">المكتملة</a></div>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown"><a class="dropdown-item" href="الأعمال%20الحالية/">الحالية</a><a class="dropdown-item" href="الأعمال%20المكتملة/">المكتملة</a></div>
                    </li>
                    <li class="nav-item">
                       <a class="nav-link" href="https://www.anime-san.com" target="_blank">الموقع</a>
                    </li>
                 </ul>
-                <form class="d-flex" method="get" action="/0:search">
-                   <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search" value="" required="">
-                   <button class="btn btn btn-danger" onclick="if($('#search_bar_form>input').val()) $('#search_bar_form').submit();" type="submit">Search</button>
-                </form>
              </div>
           </div>
        </nav>
