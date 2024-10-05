@@ -12,7 +12,7 @@ body{background-color: #121212;font-family: 'Cairo', sans-serif; direction:rtl;c
 .mdui-toolbar>*{padding:0 6px;margin:0 2px}
 .mdui-toolbar>i{opacity:.5}.mdui-toolbar>.mdui-typo-headline{padding:0 1pc 0 0}
 .mdui-toolbar>i{padding:0}.mdui-toolbar>a:hover,a.active,a.mdui-typo-headline{opacity:1}
-.mdui-container{max-width:980px}.mdui-list-item{transition:none}.mdui-list>
+.mdui-container{max-width:1500px}.mdui-list-item{transition:none}.mdui-list>
 .th{background-color:initial}.mdui-list-item>a{width:100%;line-height:3pc}
 .mdui-list-item{margin:2px 0;padding:0}
 .mdui-toolbar>a:last-child{opacity:1}@media screen and (max-width:980px){.mdui-list-item .mdui-text-right{display:none}
@@ -148,9 +148,11 @@ function nav(path) {
              </div>
           </div>
        </div>
+       <div class="mdui-container"><div class="mdui-row">
+       <a href="/" dir=auto class="mdui-typo-headline folder">${document.siteName}</a>
+       <i class="mdui-icon material-icons mdui-icon-dark folder" style="margin:0;transform:rotate(180deg);">chevron_right</i><a dir=auto class="folder" href="${p}">${n}</a>
+       </div></div>
   `;
-  html += `<div class="mdui-container"><div class="mdui-row">`;
-  html += `<a href="/" dir=auto class="mdui-typo-headline folder">${document.siteName}</a>`;
   var arr = path.trim("/").split("/");
   var p = "/";
   if (arr.length > 0) {
@@ -165,8 +167,6 @@ function nav(path) {
       if (n == "") {
         break;
       }
-      html += `<i class="mdui-icon material-icons mdui-icon-dark folder" style="margin:0;transform:rotate(180deg);">chevron_right</i><a dir=auto class="folder" href="${p}">${n}</a>`;
-      html += `</div></div>`;
     }
   }
 
