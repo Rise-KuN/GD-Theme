@@ -164,7 +164,7 @@ function nav(path) {
       if (n == "") {
         break;
       }
-      html += `<i class="mdui-icon material-icons mdui-icon-dark folder" style="margin:0;transform:rotate(180deg);">chevron_right</i><a dir=auto class="folder" href="${p}">${n}</a>`;
+      html += `<div id="content" class="mdui-container"><div class="mdui-row"><i class="mdui-icon material-icons mdui-icon-dark folder" style="margin:0;transform:rotate(180deg);">chevron_right</i><a dir=auto class="folder" href="${p}">${n}</a></div></div>`;
     }
   }
 
