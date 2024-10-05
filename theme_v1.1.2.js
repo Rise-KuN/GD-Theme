@@ -149,7 +149,7 @@ function nav(path) {
           </div>
        </div>
   `;
-
+  html += `<a href="/" dir=auto class="mdui-typo-headline folder">${document.siteName}</a>`;
   var arr = path.trim("/").split("/");
   var p = "/";
   if (arr.length > 0) {
