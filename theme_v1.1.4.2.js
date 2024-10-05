@@ -47,7 +47,7 @@ function init() {
   $("body").addClass("mdui-theme-primary-blue-grey mdui-theme-accent-blue");
   var html = `
 <header class="mdui-appbar mdui-color-theme" style="position: relative"> 
-    <div id="nav" class="mdui-toolbar mdui-container">
+    <div id="nav">
        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
           <div class="container-fluid">
              <a class="navbar-brand" href="/"><img border="0" alt="AnimeSan" src="" height="" width="100px"></a>
