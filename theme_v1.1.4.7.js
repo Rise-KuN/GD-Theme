@@ -162,11 +162,14 @@ function nav(path) {
           </div>
        </div>
   `;
-  html += `<div id="folder" class="mdui-container"><a href="/" dir=auto class="mdui-typo-headline folder">${document.siteName}</a></div>`;
+
+  html += `<div id="folder" class="mdui-container">`;
+  html += `<a href="/" dir="auto" class="mdui-typo-headline folder">${document.siteName}</a>`;
+  
   var arr = path.trim("/").split("/");
   var p = "/";
   if (arr.length > 0) {
-    for (i in arr) {
+    for (var i in arr) {
       var n = arr[i];
       n = decodeURI(n);
       if (/.*(\..+$)/i.test(n)) {
@@ -177,9 +180,13 @@ function nav(path) {
       if (n == "") {
         break;
       }
-      html += `<div id="folder" class="mdui-container"><i class="mdui-icon material-icons mdui-icon-dark folder" style="margin:0;transform:rotate(180deg);">chevron_right</i><a dir=auto class="folder" href="${p}">${n}</a></div>`;
+      html += `<i class="mdui-icon material-icons mdui-icon-dark folder" style="margin:0;transform:rotate(180deg);">chevron_right</i><a dir="auto" class="folder" href="${p}">${n}</a>`;
     }
   }
+  
+
+  html += `</div>`;
+  
   $("#nav").html(html);
 }
 
