@@ -108,12 +108,51 @@ function title(path) {
 
 // 渲染导航栏
 function nav(path) {
-  var html = "";
-  html += `<a href="/" dir=auto class="mdui-typo-headline folder">${document.siteName}</a>`;
+  var html = `
+       <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+          <div class="container-fluid">
+             <a class="navbar-brand" href="/"><img border="0" alt="AnimeSan" src="" height="" width="100px"></a>
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+             </button>
+             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                   <li class="nav-item">
+                      <a class="nav-link" href="/0:/">الرئيسية</a>
+                   </li>
+                   <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">الأعمال</a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/0:/الأعمال%20الحالية/">الحالية</a>
+                        <a class="dropdown-item" href="/0:/الأعمال%20المكتملة/">المكتملة</a>
+                      </div>
+                   </li>
+                   <li class="nav-item">
+                      <a class="nav-link" href="https://www.anime-san.com" target="_blank">الموقع</a>
+                   </li>
+                </ul>
+                <form class="d-flex" method="get" action="/0:search">
+                   <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search" value="" required="">
+                   <button class="btn btn-danger" onclick="if($('#search_bar_form>input').val()) $('#search_bar_form').submit();" type="submit">Search</button>
+                </form>
+             </div>
+          </div>
+       </nav>
+       <div class="ct-wrapper">
+          <div class="header logo-wrapper section" id="Logo-section">
+             <div id="header-inner">
+                <a href="https://www.anime-san.com" class="custom-logo-link" rel="home" aria-current="page">
+                <img width="1200" height="500" src="https://i.imgur.com/e5LyOa8.png" class="custom-logo" alt="AnimeSan DDL" decoding="async" fetchpriority="high">
+                </a> 
+             </div>
+          </div>
+       </div>
+  `;
+
   var arr = path.trim("/").split("/");
   var p = "/";
   if (arr.length > 0) {
-    for (i in arr) {
+    for (let i in arr) {
       var n = arr[i];
       n = decodeURI(n);
       if (/.*(\..+$)/i.test(n)) {
@@ -127,6 +166,7 @@ function nav(path) {
       html += `<i class="mdui-icon material-icons mdui-icon-dark folder" style="margin:0;transform:rotate(180deg);">chevron_right</i><a dir=auto class="folder" href="${p}">${n}</a>`;
     }
   }
+
   $("#nav").html(html);
 }
 
