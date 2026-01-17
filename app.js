@@ -1205,7 +1205,7 @@ async function file(path) {
 			console.log(obj);
 			var mimeType = obj.mimeType;
 			var fileExtension = obj.fileExtension
-			const code = ["php", "css", "go", "java", "js", "json", "txt", "sh", "md", "html", "xml", "py", "rb", "c", "cpp", "h", "hpp", "srt", "ass", "ssa", "vtt"];
+			const code = ["php", "css", "go", "java", "js", "json", "txt", "sh", "md", "html", "xml", "py", "rb", "c", "cpp", "h", "hpp"];
 			const video = ["mp4", "webm", "avi", "mpg", "mpeg", "mkv", "rm", "rmvb", "mov", "wmv", "asf", "ts", "flv", "3gp", "m4v"];
 			const audio = ["mp3", "flac", "wav", "ogg", "m4a", "aac", "wma", "alac"];
 			const image = ["bmp", "jpg", "jpeg", "png", "gif", "svg", "tiff", "ico"];
@@ -1254,38 +1254,6 @@ async function file(path) {
 }
 
 const copyButton = `<button onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success"> <span class="tooltiptext" id="myTooltip">Copy</span> </button>`
-
-// Check if file extension is a subtitle format
-function isSubtitleFile(extension) {
-	const subtitles = ["txt", "ssa", "ass", "srt", "vtt"];
-	return subtitles.includes(extension.toLowerCase());
-}
-
-// Generate View As Raw button
-function generateRawViewButton(fileExtension) {
-	if (isSubtitleFile(fileExtension)) {
-		const currentUrl = window.location.pathname + window.location.search;
-		const rawUrl = currentUrl.includes('?') ? currentUrl + '&raw' : currentUrl + '?raw';
-		return `<a href="${rawUrl}" type="button" class="btn btn-warning">View As Raw</a>`;
-	}
-	return '';
-}
-
-// Check if file extension is a subtitle format
-function isSubtitleFile(extension) {
-	const subtitles = ["txt", "ssa", "ass", "srt", "vtt"];
-	return subtitles.includes(extension.toLowerCase());
-}
-
-// Generate View As Raw button
-function generateRawViewButton(fileExtension) {
-	if (isSubtitleFile(fileExtension)) {
-		const currentUrl = window.location.pathname + window.location.search;
-		const rawUrl = currentUrl.includes('?') ? currentUrl + '&raw' : currentUrl + '?raw';
-		return `<a href="${rawUrl}" type="button" class="btn btn-warning">View As Raw</a>`;
-	}
-	return '';
-}
 
 function generateCopyFileBox(file_id, cookie_folder_id) {
 	const copyFileBox = `<div class="row justify-content-center mt-3" id="copyresult">
@@ -1350,7 +1318,6 @@ function file_others(name, encoded_name, size, url, file_id, cookie_folder_id) {
                   <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${encoded_name};end">1DM (Lite)</a>
                   <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${encoded_name};end">1DM+ (Plus)</a>
                 </div>
-                ` + generateRawViewButton(name.split('.').pop()) + `
             </div>
             ` + copyButton + copyFileBox+`
             </div>
@@ -1425,7 +1392,6 @@ function file_code(name, encoded_name, size, bytes, url, ext, file_id, cookie_fo
                 <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${encoded_name};end">1DM (Lite)</a>
                 <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${encoded_name};end">1DM+ (Plus)</a>
               </div>
-              ` + generateRawViewButton(ext) + `
             </div>
             ` + copyButton + copyFileBox + `
           </div>
